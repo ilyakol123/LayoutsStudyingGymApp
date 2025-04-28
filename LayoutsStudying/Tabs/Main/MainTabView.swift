@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  LayoutsStudying
 //
 //  Created by Илья Колесников on 21.04.2025.
@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainTabView: View {
     var body: some View {
-        NavigationStack {
-            TabBarView()
+        ZStack {
+            Text("Main")
         }
-        .tint(.indigo)
+        
         
     }
 }
 
 #Preview {
-    ContentView()
+    MainTabView()
 }
