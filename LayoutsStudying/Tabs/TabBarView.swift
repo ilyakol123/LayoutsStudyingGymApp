@@ -11,16 +11,25 @@ struct TabBarView: View {
     var body: some View {
         TabView{
             Tab("Main", systemImage: "house") {
-                MainTabView()
+                NavigationStack {
+                    MainTabView()
+                }
             }
             Tab("Schedule", systemImage: "calendar") {
-                CalendarTabView()
+                NavigationStack {
+                    CalendarTabView()
+                }
+                
             }
             Tab("Coaches", systemImage: "dumbbell") {
-                CoachesTabView()
+                NavigationStack {
+                    CoachesTabView()
+                }
             }
             Tab("Profile", systemImage: "person.crop.circle.fill") {
-                ProfileTabView()
+                NavigationStack {
+                    ProfileTabView()
+                }
             }
         }
     }

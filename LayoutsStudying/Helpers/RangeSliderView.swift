@@ -26,9 +26,9 @@ struct RangeSliderView: View {
             let minimumDistance = minimumDistance == 0 ? 0 : (minimumDistance / (range.upperBound - range.lowerBound)) * maxSliderWidth
             VStack {
                 HStack {
-                    Text("\(Int(selection.lowerBound)) age")
+                    Text(Int(selection.lowerBound) < 3 ? "\(Int(selection.lowerBound)) year" : "\(Int(selection.lowerBound)) years")
                     Spacer()
-                    Text("\(Int(selection.upperBound)) age")
+                    Text("\(Int(selection.upperBound)) year")
                 }
                 .padding()
             ZStack(alignment: .leading) {

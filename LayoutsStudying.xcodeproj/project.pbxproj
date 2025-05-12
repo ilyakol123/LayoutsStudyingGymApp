@@ -6,7 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7944B11D2DD23BAD0096404C /* LayoutsStudying-InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7944B11B2DD23BAD0096404C /* LayoutsStudying-InfoPlist.strings */; };
+		7944B1202DD23BAD0096404C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7944B11E2DD23BAD0096404C /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		7944B11C2DD23BAD0096404C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "ru.lproj/LayoutsStudying-InfoPlist.strings"; sourceTree = "<group>"; };
+		7944B11F2DD23BAD0096404C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7993661C2DB64CE800EE3EF8 /* LayoutsStudying.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayoutsStudying.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -32,6 +39,8 @@
 		799366132DB64CE800EE3EF8 = {
 			isa = PBXGroup;
 			children = (
+				7944B11E2DD23BAD0096404C /* Localizable.strings */,
+				7944B11B2DD23BAD0096404C /* LayoutsStudying-InfoPlist.strings */,
 				7993661E2DB64CE800EE3EF8 /* LayoutsStudying */,
 				7993661D2DB64CE800EE3EF8 /* Products */,
 			);
@@ -90,7 +99,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = 799366132DB64CE800EE3EF8;
 			minimizedProjectReferenceProxies = 1;
@@ -109,6 +118,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7944B1202DD23BAD0096404C /* Localizable.strings in Resources */,
+				7944B11D2DD23BAD0096404C /* LayoutsStudying-InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,12 +135,34 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		7944B11B2DD23BAD0096404C /* LayoutsStudying-InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7944B11C2DD23BAD0096404C /* ru */,
+			);
+			name = "LayoutsStudying-InfoPlist.strings";
+			path = LayoutsStudying;
+			sourceTree = SOURCE_ROOT;
+		};
+		7944B11E2DD23BAD0096404C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7944B11F2DD23BAD0096404C /* ru */,
+			);
+			name = Localizable.strings;
+			path = LayoutsStudying;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		799366252DB64CE900EE3EF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -179,7 +212,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -194,6 +227,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -237,7 +271,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

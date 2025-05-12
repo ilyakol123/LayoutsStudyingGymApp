@@ -137,7 +137,7 @@ struct FiltersView: View {
                             Button() {
                                 selectedType = false
                             } label: {
-                                Text("Woman")
+                                Text("Group")
                             }
                             .scaledToFit()
                             .padding(.horizontal)

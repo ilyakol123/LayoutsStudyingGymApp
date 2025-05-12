@@ -19,12 +19,12 @@ struct CoachView: View {
                     .background(Color.gray.opacity(0.4))
                     .aspectRatio(0.9, contentMode: .fit)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                    //.padding()
                     .overlay(alignment: .bottomLeading) {
                         Text("Exp: ")
-                                    .boldPart(coach.experience > 1 ?
-                                              "\(coach.experience) years" :
-                                              "\(coach.experience) year")
+                            .boldPart(String(
+                                format: NSLocalizedString("experience_count", comment: ""),
+                                coach.experience
+                            ))
                                     .foregroundStyle(.indigo)
                                     .padding(7)
                                     .background(Color.white.opacity(0.8))
@@ -52,16 +52,15 @@ struct CoachView: View {
                     .foregroundStyle(.secondary)
             }
         }
-        //.padding(10)
     }
 }
 
-struct SizePreferenceKey: PreferenceKey {
-    static var defaultValue: CGSize = .zero
-    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
-        value = nextValue()
-    }
-}
+//struct SizePreferenceKey: PreferenceKey {
+//    static var defaultValue: CGSize = .zero
+//    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
+//        value = nextValue()
+//    }
+//}
 
 extension Text {
     func boldPart(_ part: String) -> Text {
@@ -70,5 +69,5 @@ extension Text {
 }
 
 #Preview {
-    CoachView(coach: Coach(name: "Ekaterina", sex: .female, experience: 3, isPersonal: true, isFavorite: true, gym: .ddxPlaza, specialization: "testSpec1", quote: "testQuote1"))
+    CoachView(coach: Coach(name: "Ekaterina", sex: .female, experience: 1, isPersonal: true, isFavorite: true, gym: .ddxPlaza, specialization: "testSpec1", quote: "testQuote1"))
 }
