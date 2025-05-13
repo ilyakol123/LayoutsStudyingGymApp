@@ -7,11 +7,12 @@
 
 import Foundation
 
-@MainActor
+
+@Observable
 class CoachViewModel: ObservableObject {
-    @Published var coaches: [Coach] = []
-    @Published var isLoading = false
-    @Published var errorMessage: String?
+     var coaches: [Coach] = []
+     var isLoading = false
+     var errorMessage: String?
 
     func loadCoaches() async {
         isLoading = true

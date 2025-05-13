@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CoachesTabView: View {
     
-    @StateObject private var viewModel = CoachViewModel()
+    private var viewModel = CoachViewModel()
     
     @State var searchText: String = ""
     @State var searchViewIsPresented: Bool = false
