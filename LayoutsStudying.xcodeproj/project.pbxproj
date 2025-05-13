@@ -6,11 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		7944B11D2DD23BAD0096404C /* LayoutsStudying-InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7944B11B2DD23BAD0096404C /* LayoutsStudying-InfoPlist.strings */; };
-		7944B1202DD23BAD0096404C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7944B11E2DD23BAD0096404C /* Localizable.strings */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		7944B11C2DD23BAD0096404C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "ru.lproj/LayoutsStudying-InfoPlist.strings"; sourceTree = "<group>"; };
 		7944B11F2DD23BAD0096404C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -118,8 +113,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7944B1202DD23BAD0096404C /* Localizable.strings in Resources */,
-				7944B11D2DD23BAD0096404C /* LayoutsStudying-InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

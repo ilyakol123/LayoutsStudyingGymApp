@@ -11,6 +11,9 @@
 "Coaches" = "Тренеры";
 
 /* No comment provided by engineer. */
+"Coach crew" = "Тренерский состав";
+
+/* No comment provided by engineer. */
 "DDX Murino" = "ДДХ Мурино";
 
 /* No comment provided by engineer. */
@@ -23,7 +26,7 @@
 "Don't care" = "Не важно";
 
 /* No comment provided by engineer. */
-"Exp: " = "Стаж:";
+"Exp: " = "Стаж: ";
 
 /* No comment provided by engineer. */
 "Experience" = "Стаж";
@@ -32,10 +35,10 @@
 "Filters" = "Фильтры";
 
 /* No comment provided by engineer. */
-"Group" = "Групповой";
+"Group" = "Групповой тренер";
 
 /* No comment provided by engineer. */
-"Group coaches" = "Тренер групповых занятий";
+"Group coaches" = "Тренеры групповых программ";
 
 /* No comment provided by engineer. */
 "Gyms" = "Залы";
@@ -47,10 +50,10 @@
 "Man" = "Мужчина";
 
 /* No comment provided by engineer. */
-"Personal" = "Персональный";
+"Personal" = "Персональный тренер";
 
 /* No comment provided by engineer. */
-"Personal coaches" = "Персональные тренера";
+"Personal coaches" = "Персональные тренеры";
 
 /* No comment provided by engineer. */
 "Profile" = "Профиль";
@@ -62,7 +65,7 @@
 "Schedule" = "Расписания";
 
 /* No comment provided by engineer. */
-"Search" = "Искать";
+"Search" = "Поиск";
 
 /* No comment provided by engineer. */
 "Sex" = "Пол";
