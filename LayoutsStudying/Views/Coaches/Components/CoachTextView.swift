@@ -16,6 +16,7 @@ struct CoachTextView: View {
                 .font(.system(size: 16, weight: .heavy))
         Text(coach.isPersonal ? "Personal" : "Group")
             .foregroundStyle(.secondary)
+            .font(.caption)
     }
     }
 }

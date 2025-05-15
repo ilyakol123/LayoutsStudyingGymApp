@@ -252,12 +252,12 @@ struct FiltersView: View {
                 //add filtering later
             } label: {
                 Text("Show \(foundCoaches.count) coaches")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.indigo)
+                    .foregroundColor(.white)
+                    .cornerRadius(30)
             }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.indigo)
-                .foregroundColor(.white)
-                .cornerRadius(30)
                 .padding(.horizontal)
         }
         }

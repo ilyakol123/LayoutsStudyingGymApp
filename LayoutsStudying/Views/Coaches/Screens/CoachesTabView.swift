@@ -38,10 +38,11 @@ struct CoachesTabView: View {
             .buttonStyle(.plain) // Убираем стандартные стили кнопки
             .padding(.top, 10)
             .padding(.bottom, 15)
+            .navigationTitle("")
             
             
             NavigationLink {
-                PersonalCoachesView(coaches: viewModel.coaches)
+                GreedCoachesView(coaches: viewModel.coaches)
             } label: {
                 HStack {
                     Text("Personal coaches")
@@ -82,7 +83,7 @@ struct CoachesTabView: View {
             .scrollIndicators(.hidden)
             
             NavigationLink {
-                GroupCoachesView()
+                GreedCoachesView(coaches: viewModel.coaches)
             } label: {
                 HStack {
                     Text("Group coaches")
