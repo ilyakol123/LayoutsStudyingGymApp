@@ -1,17 +1,30 @@
 //
-//  AuthView.swift
+//  SignUpView.swift
 //  LayoutsStudying
 //
-//  Created by Илья Колесников on 14.05.2025.
+//  Created by Илья Колесников on 22.05.2025.
 //
 
 import SwiftUI
 
-struct AuthView: View {
+struct SignUpView: View {
 
     @State private var authViewModel = AuthViewModel()
     @FocusState private var isEmailFocused: Bool
     @FocusState private var isPasswordFocused: Bool
+    private var isLoginButtonDisabled: Bool {
+        return !authViewModel.isEmailValid || !authViewModel.isPasswordValid
+    }
+    
+    @Environment(\.dismiss) var dismiss
+    
+    private func signUpWithEmailPassword() {
+        Task {
+          if await authViewModel.signUpWithEmailPassword() == true {
+            dismiss()
+          }
+        }
+      }
 
     var body: some View {
         Form {
@@ -88,8 +101,6 @@ struct AuthView: View {
                         .font(.caption)
                         .padding(.leading, -60)
                 }
-                
-
             }
             .foregroundStyle(.gray)
             .frame(maxWidth: .infinity, minHeight: 40, alignment: .leading)
@@ -113,26 +124,33 @@ struct AuthView: View {
             .cornerRadius(15)
             .padding(.horizontal)
 
-            Button {
-                //login
-            } label: {
-                Text("Login")
-                    .bold()
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(.indigo)
-                    .foregroundStyle(.white)
-                    .cornerRadius(30)
+            Button(action: signUpWithEmailPassword) {
+                if authViewModel.authState != .authenticating {
+                    Text("Sign Up")
+                        .bold()
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(isLoginButtonDisabled ? Color.indigo.opacity(0.5) : Color .indigo)
+                        .foregroundStyle(.white)
+                        .cornerRadius(30)
+                } else {
+                    ProgressView()
+                               .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                               .padding(.vertical, 8)
+                               .frame(maxWidth: .infinity)
+                }
+                
 
             }
+            .disabled(isLoginButtonDisabled)
         }
         .padding()
         .formStyle(.columns)
-        .navigationBarTitle("Auth or Register")
+        .navigationBarTitle("Sign Up")
 
     }
 }
 
 #Preview {
-    AuthView()
+    SignUpView()
 }

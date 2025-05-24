@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 enum AuthFlow {
     case signIn
@@ -46,9 +47,87 @@ class AuthViewModel{
     
     var flow: AuthFlow = .signIn
     
+    var user: User?
     
+    private var authStateHandler: AuthStateDidChangeListenerHandle?
+
+    func registerAuthStateHandler() {
+        if authStateHandler == nil {
+          authStateHandler = Auth.auth().addStateDidChangeListener { [weak self] auth, user in
+              guard let self = self else { return }
+              
+              DispatchQueue.main.async {
+                  self.user = user
+                  self.displayName = user?.email ?? ""
+                  
+                  if user != nil {
+                      self.authState = .authenticated
+                  } else {
+                      self.authState = .notAuthenticated
+                  }
+              }
+          }
+        }
+      }
+    
+    func switchFlow() {
+        flow = flow == .signIn ? .signUp : .signIn
+        errorMessage = ""
+      }
+    
+    init() {
+        self.authState = .authenticating
+        
+        registerAuthStateHandler()
+    }
     
     var authState: AuthState = .notAuthenticated
     var errorMessage: String = ""
     var displayName: String = ""
+}
+
+extension AuthViewModel {
+    func signInWithEmailPassword() async -> Bool {
+        authState = .authenticating
+        do {
+            let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            user = authResult.user
+            print("User \(authResult.user.uid) signed in")
+            authState = .authenticated
+            displayName = user?.email ?? "unknown User"
+            return true
+        } catch {
+            print(error)
+            errorMessage = error.localizedDescription
+            authState = .notAuthenticated
+            return false
+        }
+      }
+
+      func signUpWithEmailPassword() async -> Bool {
+          authState = .authenticating
+          do {
+              let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
+              user = authResult.user
+              print("Created user \(authResult.user.uid)")
+              authState = .authenticated
+              displayName = user?.email ?? "unknown User"
+              return true
+          } catch {
+              print(error)
+              errorMessage = error.localizedDescription
+              authState = .notAuthenticated
+              return false
+          }
+      }
+
+      func signOut() {
+          do {
+                try Auth.auth().signOut()
+              }
+              catch {
+                print(error)
+                errorMessage = error.localizedDescription
+              }
+      }
 }

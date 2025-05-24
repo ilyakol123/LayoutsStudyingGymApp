@@ -6,10 +6,27 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ProfileTabView: View {
+    private var authViewModel = AuthViewModel()
+    
     var body: some View {
-        Text("Profile")
+        VStack {
+            
+            Form {
+                Text("uid:  \(authViewModel.user?.uid ?? "missing uid")")
+                Text("email: \(authViewModel.user?.email ?? "missing email")")
+            }
+            
+            Button(action: authViewModel.signOut) {
+                Text("Sign Out")
+            }
+            .buttonStyle(.bordered)
+        }
+        
+        
+        
     }
 }
 
