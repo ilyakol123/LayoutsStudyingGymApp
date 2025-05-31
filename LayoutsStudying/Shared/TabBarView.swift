@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabBarView: View {
     var body: some View {
-        TabView{
+        TabView {
             Tab("Coaches", systemImage: "dumbbell") {
                 NavigationStack {
                     CoachesScreen()

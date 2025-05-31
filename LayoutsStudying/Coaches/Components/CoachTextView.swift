@@ -9,18 +9,29 @@ import SwiftUI
 
 struct CoachTextView: View {
     var coach: Coach
-    
+
     var body: some View {
         VStack(alignment: .leading) {
-        Text(coach.name)
+            Text(coach.name)
                 .font(.system(size: 16, weight: .heavy))
-        Text(coach.isPersonal ? "Personal" : "Group")
-            .foregroundStyle(.secondary)
-            .font(.caption)
-    }
+            Text(coach.isPersonal ? "Personal" : "Group")
+                .foregroundStyle(.secondary)
+                .font(.caption)
+        }
     }
 }
 
 #Preview {
-    CoachTextView(coach: Coach(name: "Ekaterina", sex: .female, experience: 1, isPersonal: true, isFavorite: true, gym: .ddxPlaza, specialization: "testSpec1", quote: "testQuote1"))
+    CoachTextView(
+        coach: Coach(
+            name: "Ekaterina",
+            sex: .female,
+            experience: 1,
+            isPersonal: true,
+            isFavorite: true,
+            gym: .ddxPlaza,
+            specialization: "testSpec1",
+            quote: "testQuote1"
+        )
+    )
 }
