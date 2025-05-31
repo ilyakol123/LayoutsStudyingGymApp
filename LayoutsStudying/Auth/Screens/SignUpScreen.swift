@@ -1,14 +1,13 @@
 //
-//  AuthView.swift
+//  SignUpView.swift
 //  LayoutsStudying
 //
-//  Created by Илья Колесников on 14.05.2025.
+//  Created by Илья Колесников on 22.05.2025.
 //
 
-import FirebaseAuth
 import SwiftUI
 
-struct LoginView: View {
+struct SignUpScreen: View {
 
     @State private var authViewModel = AuthViewModel()
     @FocusState private var isEmailFocused: Bool
@@ -19,9 +18,9 @@ struct LoginView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    private func signInWithEmailPassword() {
+    private func signUpWithEmailPassword() {
         Task {
-          if await authViewModel.signInWithEmailPassword() == true {
+          if await authViewModel.signUpWithEmailPassword() == true {
             dismiss()
           }
         }
@@ -63,7 +62,7 @@ struct LoginView: View {
                 .padding(.bottom)
                 
                 VStack {
-                    TextField("Password", text: $authViewModel.password)
+                    SecureField("Password", text: $authViewModel.password)
                         .focused($isPasswordFocused)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
@@ -125,9 +124,9 @@ struct LoginView: View {
             .cornerRadius(15)
             .padding(.horizontal)
 
-            Button(action: signInWithEmailPassword) {
+            Button(action: signUpWithEmailPassword) {
                 if authViewModel.authState != .authenticating {
-                    Text("Login")
+                    Text("Sign Up")
                         .bold()
                         .frame(maxWidth: .infinity)
                         .padding()
@@ -143,15 +142,15 @@ struct LoginView: View {
                 
 
             }
-            //.disabled(isLoginButtonDisabled)
+            .disabled(isLoginButtonDisabled)
         }
         .padding()
         .formStyle(.columns)
-        .navigationBarTitle("Sign In")
+        .navigationBarTitle("Sign Up")
 
     }
 }
 
 #Preview {
-    LoginView()
+    SignUpScreen()
 }

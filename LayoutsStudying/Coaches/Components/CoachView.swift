@@ -19,19 +19,6 @@ struct CoachView: View {
                     .background(Color.gray.opacity(0.4))
                     .aspectRatio(0.9, contentMode: .fit)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-//                    .overlay(alignment: .bottomLeading) {
-//                        Text("Exp: ")
-//                            .boldPart(String(
-//                                format: NSLocalizedString("experience_count", comment: ""),
-//                                coach.experience
-//                            ))
-//                                    .foregroundStyle(.indigo)
-//                                    .padding(7)
-//                                    .background(Color.white.opacity(0.8))
-//                                    .clipShape(RoundedRectangle(cornerRadius: 30))
-//                                    .padding(10)
-//                                    .scaledToFit()
-//                    }
                     .overlay(alignment: .topTrailing) {
                         Button {
                                     coach.isFavorite.toggle()

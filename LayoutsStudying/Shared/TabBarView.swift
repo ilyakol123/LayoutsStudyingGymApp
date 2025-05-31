@@ -10,25 +10,14 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView{
-            Tab("Main", systemImage: "house") {
-                NavigationStack {
-                    MainTabView()
-                }
-            }
-            Tab("Schedule", systemImage: "calendar") {
-                NavigationStack {
-                    CalendarTabView()
-                }
-                
-            }
             Tab("Coaches", systemImage: "dumbbell") {
                 NavigationStack {
-                    CoachesTabView()
+                    CoachesScreen()
                 }
             }
             Tab("Profile", systemImage: "person.crop.circle.fill") {
                 NavigationStack {
-                    ProfileTabView()
+                    ProfileScreen()
                 }
             }
         }

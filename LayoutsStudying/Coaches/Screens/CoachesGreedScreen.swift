@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GreedCoachesView: View {
+struct CoachesGreedScreen: View {
     
     var coaches: [Coach]
     let columns = [
@@ -49,7 +49,7 @@ struct GreedCoachesView: View {
 }
 
 #Preview {
-    GreedCoachesView(coaches: [
+    let coaches = [
         Coach(name: "Ekaterina", sex: .female, experience: 3, isPersonal: true, image: "coach1", isFavorite: false, gym: .ddxPlaza, specialization: "testSpec1", quote: "testQuote1"),
         Coach(name: "Dmitriy", sex: .male, experience: 5, isPersonal: false, isFavorite: true, gym: .ddxPlaza, specialization: "testSpec2", quote: "testQuote2"),
         Coach(name: "Julia", sex: .female, experience: 1, isPersonal: true, image: "coach3", isFavorite: false, gym: .ddxMurino, specialization: "testSpec3", quote: "testQuote3"),
@@ -63,5 +63,5 @@ struct GreedCoachesView: View {
         Coach(name: "Dmitriy", sex: .male, experience: 5, isPersonal: false, isFavorite: true, gym: .ddxPlaza, specialization: "testSpec2", quote: "testQuote2"),
         Coach(name: "Julia", sex: .female, experience: 1, isPersonal: true, image: "coach3", isFavorite: false, gym: .ddxMurino, specialization: "testSpec3", quote: "testQuote3")
     ]
-)
+    CoachesGreedScreen(coaches: coaches)
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CoachesTabView: View {
+struct CoachesScreen: View {
     
     private var viewModel = CoachViewModel()
     
@@ -35,7 +35,7 @@ struct CoachesTabView: View {
                     .background(.indigo.opacity(0.2))
                     .clipShape(RoundedRectangle(cornerRadius: 15))
             }
-            .buttonStyle(.plain) // Убираем стандартные стили кнопки
+            .buttonStyle(.plain)
             .padding(.top, 10)
             .padding(.bottom, 15)
             .navigationTitle("")
@@ -158,5 +158,5 @@ struct CoachesTabView: View {
 }
 
 #Preview {
-    CoachesTabView()
+    CoachesScreen()
 }

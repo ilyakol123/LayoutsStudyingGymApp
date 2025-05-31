@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WelcomeView: View {
+struct WelcomeScreen: View {
     var body: some View {
         NavigationStack {
             ZStack {
@@ -37,7 +37,7 @@ struct WelcomeView: View {
                     .padding(.horizontal)
                     
                     NavigationLink {
-                        LoginView()
+                        SignInScreen()
                     } label: {
                         Text("Sign In")
                             .bold()
@@ -51,7 +51,7 @@ struct WelcomeView: View {
                         .padding(.horizontal)
                     
                     NavigationLink {
-                        SignUpView()
+                        SignUpScreen()
                     } label: {
                         Text("Sign Up")
                             .bold()
@@ -88,5 +88,5 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView()
+    WelcomeScreen()
 }

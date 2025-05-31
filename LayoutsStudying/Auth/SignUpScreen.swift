@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignUpView: View {
+struct SignUpScreen: View {
 
     @State private var authViewModel = AuthViewModel()
     @FocusState private var isEmailFocused: Bool
@@ -62,7 +62,7 @@ struct SignUpView: View {
                 .padding(.bottom)
                 
                 VStack {
-                    TextField("Password", text: $authViewModel.password)
+                    SecureField("Password", text: $authViewModel.password)
                         .focused($isPasswordFocused)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
@@ -152,5 +152,5 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView()
+    SignUpScreen()
 }
