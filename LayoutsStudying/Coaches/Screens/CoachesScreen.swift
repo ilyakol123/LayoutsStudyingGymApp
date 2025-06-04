@@ -15,51 +15,60 @@ struct CoachesScreen: View {
     @State var showFilterSheet: Bool = false
 
     var body: some View {
-        Form {
-            searchField
-            personalCoachesLink
-            personalCoachesScrollView
+        ZStack {
+            if viewModel.isLoading {
+                CoachScreenHolder()
+                .zIndex(1)
+            }
+            Form {
+                searchField
+                personalCoachesLink
+                personalCoachesScrollView
 
-            groupCoachesLink
-            groupCoachesScrollView
-            Spacer()
-        }
-        .formStyle(.columns)
-        .padding(10)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    showFilterSheet.toggle()
-                } label: {
-                    Image(systemName: "slider.vertical.3")
+                groupCoachesLink
+                groupCoachesScrollView
+                Spacer()
+            }
+            .zIndex(0)
+            .formStyle(.columns)
+            .padding(10)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showFilterSheet.toggle()
+                    } label: {
+                        Image(systemName: "slider.vertical.3")
+                    }
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("Coach crew")
+                        .font(.title)
+                        .bold()
                 }
             }
-            ToolbarItem(placement: .topBarLeading) {
-                Text("Coach crew")
-                    .font(.title)
-                    .bold()
+            .sheet(isPresented: $showFilterSheet) {
+                FiltersView(
+                    showFilterSheet: $showFilterSheet,
+                    coaches: viewModel.coaches
+                )
+            }
+    //        .overlay {
+    //            if viewModel.isLoading {
+    //                CoachScreenHolder()
+    //            }
+    //        }
+            .task {
+                await viewModel.loadCoaches()
+            }
+            .alert("Ошибка", isPresented: .constant(viewModel.errorMessage != nil))
+            {
+                Button("ОК", role: .cancel) { viewModel.errorMessage = nil }
+            } message: {
+                Text(viewModel.errorMessage ?? "")
             }
         }
-        .sheet(isPresented: $showFilterSheet) {
-            FiltersView(
-                showFilterSheet: $showFilterSheet,
-                coaches: viewModel.coaches
-            )
-        }
-        .overlay {
-            if viewModel.isLoading {
-                ProgressView("Загрузка...")
-            }
-        }
-        .task {
-            await viewModel.loadCoaches()
-        }
-        .alert("Ошибка", isPresented: .constant(viewModel.errorMessage != nil))
-        {
-            Button("ОК", role: .cancel) { viewModel.errorMessage = nil }
-        } message: {
-            Text(viewModel.errorMessage ?? "")
-        }
+        .toolbar(viewModel.isLoading ? .hidden : .visible, for: .navigationBar)
+        
 
     }
     private var searchField: some View {

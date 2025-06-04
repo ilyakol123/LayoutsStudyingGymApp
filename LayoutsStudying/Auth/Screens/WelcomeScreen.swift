@@ -80,7 +80,8 @@ struct WelcomeScreen: View {
         .padding(.horizontal)
     }
     private var skipButton: some View {
-        Button {
+        NavigationLink {
+           TabBarView()
             //skip auth view move to tab view with no profile
         } label: {
             Text("Skip")
