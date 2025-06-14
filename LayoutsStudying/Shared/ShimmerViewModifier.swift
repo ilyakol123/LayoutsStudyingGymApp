@@ -10,7 +10,6 @@ import SwiftUI
 struct ShimmerViewModifier: ViewModifier {
     
     @State private var gradientValue: CGFloat = 0.1
-    let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     func body(content: Content) -> some View {
         content
@@ -25,7 +24,7 @@ struct ShimmerViewModifier: ViewModifier {
                     endPoint: .trailing
                 )
             )
-            .onReceive(timer) { _ in
+            .onReceive(Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()) { _ in
                 
                 if gradientValue < 1.0 {
                     gradientValue += 0.005

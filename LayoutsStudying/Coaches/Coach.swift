@@ -88,7 +88,7 @@ enum Sex: String, Decodable {
 }
 
 enum Gym: String, Decodable {
-    case ddxPlaza
-    case ddxMurino
-    case ddxGallery
+    case ddxPlaza = "DDX Saint-Petersburg Pearl Plaza"
+    case ddxMurino = "DDX Murino"
+    case ddxGallery = "DDX Gallery"
 }

@@ -30,7 +30,7 @@ class AuthViewModel {
     
     var userEmail: String = ""
     var isUserEmailValid: Bool {
-        emailCheck(email: userEmail)
+        isEmailValid(userEmail)
     }
     var wasUserEmailEdited: Bool = false
     var shouldShowUserEmailError: Bool {
@@ -39,7 +39,7 @@ class AuthViewModel {
 
     var userPassword: String = ""
     var isUserPasswordValid: Bool {
-        passwordCheck(password: userPassword)
+        isPasswordValid(password: userPassword)
     }
     var wasPasswordEdited: Bool = false
     var shouldShowPasswordError: Bool {
@@ -67,7 +67,7 @@ class AuthViewModel {
         }
     }
     
-    func emailCheck(email: String) -> Bool {
+    func isEmailValid(_ email: String) -> Bool {
         let emailPredicate = NSPredicate(
             format: "SELF MATCHES %@",
             #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
@@ -75,7 +75,7 @@ class AuthViewModel {
         return emailPredicate.evaluate(with: email)
     }
     
-    func passwordCheck(password: String) -> Bool {
+    func isPasswordValid(password: String) -> Bool {
         let passwordRegex =
             "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}$"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
@@ -132,6 +132,7 @@ extension AuthViewModel {
     func signOut() {
         do {
             try Auth.auth().signOut()
+            self.authState = .notAuthenticated
         } catch {
             print(error)
             errorMessage = error.localizedDescription

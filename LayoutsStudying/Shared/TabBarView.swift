@@ -10,17 +10,20 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView {
-            Tab("Coaches", systemImage: "dumbbell") {
-                NavigationStack {
-                    CoachesScreen()
-                }
+
+            Tab("Main", systemImage: "house") {
+                    MainScreen()
             }
+
+            Tab("Coaches", systemImage: "dumbbell") {
+                    CoachesScreen()
+            }
+            
             Tab("Profile", systemImage: "person.crop.circle.fill") {
-                NavigationStack {
                     ProfileScreen()
-                }
             }
         }
+        .toolbar(.hidden)
     }
 }
 

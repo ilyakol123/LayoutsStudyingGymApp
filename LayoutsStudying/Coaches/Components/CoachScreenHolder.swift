@@ -12,7 +12,7 @@ struct CoachScreenHolder: View {
     var body: some View {
         ZStack {
             Color(.systemBackground)
-               // .ignoresSafeArea()
+
             VStack {
                 HStack {
                     RoundedRectangle(cornerRadius: 15)
@@ -62,7 +62,6 @@ struct CoachScreenHolder: View {
                 .padding(.vertical, 5)
 
             }
-            //.background(Color.blue.opacity(0.2))
             .shimmerStyle()
         }
         .scaledToFit()
